@@ -1,0 +1,20 @@
+columns:
+    name:
+        label: Название
+        type: text
+        searchable: true
+        sortable: true
+    preview_img:
+        label: Превью
+        type: partial
+        path: ~/plugins/artlocation/projects/models/project/_preview_img_column.htm
+    short_desc:
+        label: 'Краткое описание'
+        type: text
+        searchable: true
+    filter:
+        label: 'Фильтр проекта'
+        type: text
+        sortable: true
+        select: code
+        relation: filter

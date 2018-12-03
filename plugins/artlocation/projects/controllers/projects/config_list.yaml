@@ -1,0 +1,12 @@
+title: Projects
+modelClass: Artlocation\Projects\Models\Project
+list: $/artlocation/projects/models/project/columns.yaml
+recordUrl: 'artlocation/projects/projects/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

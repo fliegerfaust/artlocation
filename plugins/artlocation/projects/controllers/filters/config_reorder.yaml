@@ -1,0 +1,5 @@
+title: Filters
+modelClass: Artlocation\Projects\Models\Filter
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

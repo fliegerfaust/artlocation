@@ -1,0 +1,71 @@
+fields:
+    name:
+        label: Название
+        span: auto
+        required: 1
+        type: text
+        comment: 'Название, которое выводится на странице проекта'
+    slug:
+        label: 'Slug для ссылки'
+        span: auto
+        hidden: 0
+        preset:
+            field: name
+            type: slug
+        type: text
+        comment: 'Автоматически добавится в конец url проекта'
+    short_desc:
+        label: 'Краткое описание'
+        span: auto
+        required: 1
+        type: text
+        comment: 'Описание, которое выводится на главной странице сайта'
+    filter:
+        label: Фильтр
+        nameFrom: title
+        descriptionFrom: description
+        select: title
+        span: auto
+        required: 1
+        type: relation
+        comment: 'Выбор типа проекта для фильтра на главной странице сайта'
+    full_desc:
+        label: 'Полное описание'
+        span: auto
+        required: 1
+        type: text
+        comment: 'Описание, которое выводится на странице проекта'
+    jobs:
+        label: 'Тип работ'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+        comment: 'Виды работ, которые проведены над проектом (выводится на странице проекта)'
+    preview_img:
+        label: 'Картинка превью'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: 0
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        required: 1
+        type: fileupload
+        comment: 'Картнка проекта на главной странице'
+    project_img:
+        label: 'Картинка кейса'
+        mode: image
+        imageWidth: '200'
+        imageHeight: '200'
+        useCaption: 0
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        required: 1
+        type: fileupload
+        comment: 'Картинка кейса на странице проекта'

@@ -1,0 +1,77 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Art Location - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{{ 'assets/images/favicon.ico'|theme }}" type="image/x-icon">
+        <!-- site font -->
+        <link href="https://fonts.googleapis.com/css?family=Exo+2:100,300,400,700&amp;subset=cyrillic" rel="stylesheet">
+        <!-- style -->
+        <link href="{{ 'assets/css/style.css'|theme }}" rel="stylesheet" type="text/css">
+        <!-- bootstrap -->
+        <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet" type="text/css">
+        <!-- responsive -->
+        <link href="{{ 'assets/css/responsive.css'|theme }}" rel="stylesheet" type="text/css">
+        <!-- font-awesome -->
+        <link href="{{ 'assets/css/font-awesome.min.css'|theme }}" rel="stylesheet" type="text/css">
+        <link href="{{ 'assets/css/effects/set2.css'|theme }}" rel="stylesheet" type="text/css">
+        <link href="{{ 'assets/css/effects/normalize.css'|theme }}" rel="stylesheet" type="text/css">
+        <link href="{{ 'assets/css/effects/component.css'|theme }}" rel="stylesheet" type="text/css">
+        {% styles %}
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header role="header" class="header {% if this.page.id == 'main' %}main-header{% endif %}">
+            <div class="container">
+                {% partial 'site/header' %}
+            </div>
+        </header>
+
+        <!-- Content -->
+        <!-- <section id="layout-content"> -->
+            {% page %}
+        <!-- </section> -->
+
+        <!-- Footer -->
+        <footer role="footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+        <script src="{{ 'assets/js/app.js'|theme }}"></script>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{{ 'assets/js/jquery.min.js'|theme }}" type="text/javascript"></script>
+        <!-- Custom navigation -->
+        <script src="{{ 'assets/js/nav.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/custom.js'|theme }}" type="text/javascript"></script>
+        <!-- Include Yandex.Metrika counter -->
+        <!-- <script src="{{ 'assets/js/yandex-metrika.js'|theme }}" type="text/javascript"></script> -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{ 'assets/js/bootstrap.min.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/effects/masonry.pkgd.min.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/effects/imagesloaded.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/effects/classie.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/effects/AnimOnScroll.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/effects/modernizr.custom.js'|theme }}"></script>
+        <script src="{{ 'assets/js/jquery.filterizr.min.js'|theme }}"></script>
+        <!-- jquery.countdown -->
+        <script src="{{ 'assets/js/html5shiv.js'|theme }}" type="text/javascript"></script>
+        <script src="{{ 'assets/js/main.js'|theme }}" type="text/javascript"></script>
+        <!-- Include CallbackHunter script -->
+        <script type="text/javascript" src="//cdn.callbackhunter.com/cbh.js?hunter_code=9d760c36e76f45adf2a0681123a48563" charset="UTF-8"></script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>

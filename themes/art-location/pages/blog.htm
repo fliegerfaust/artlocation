@@ -1,0 +1,73 @@
+title = "Блог"
+url = "/blog"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "main"
+postPage = "blogpost"
+==
+{% set posts = blogPosts.posts %}
+{% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
+
+<main role="main-inner-wrapper" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            <article role="pge-title-content" class="blog-header">
+                <header>
+                    <h2><span>Наш</span>уютный блог</h2>
+                </header>
+                <p>Пишем на актуальные темы и отвечаем на самые частые вопросы</p>
+            </article>
+            {% for post in posts|slice(0,(posts.count / 2)|round(0,'floor')) %}
+                <ul class="grid-lod effect-2" id="grid">
+                    <li>
+                        <section class="blog-content">
+                            <a href="{{ post.url }}">
+                            <figure>
+                                <div class="post-date">
+                                    <span>{{ post.published_at|date('d') }}</span> {{ mnths[post.published_at|date('n')] }}
+                                </div>
+                                {% for image in post.featured_images|slice(0,1) %}
+                                    <img src="{{ image.path }}" alt="" class="img-responsive"/>
+                                {% endfor %}
+                            </figure>
+                            </a>
+                            <article>
+                                {{ post.title }}
+                            </article>
+                        </section>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            {% for post in posts|slice((posts.count / 2)|round(0,'floor'), posts.count) %}
+                <ul class="grid-lod effect-2" id="grid">
+                    <li>
+                        <section class="blog-content">
+                            <a href="{{ post.url }}">
+                            <figure>
+                                <div class="post-date">
+                                    <span>{{ post.published_at|date('d') }}</span> {{ mnths[post.published_at|date('n')] }}
+                                </div>
+                                {% for image in post.featured_images|slice(0,1) %}
+                                    <img src="{{ image.path }}" alt="" class="img-responsive"/>
+                                {% endfor %}
+                            </figure>
+                            </a>
+                            <article>
+                                {{ post.title }}
+                            </article>
+                        </section>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+</main>

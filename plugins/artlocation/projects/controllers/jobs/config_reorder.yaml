@@ -1,0 +1,5 @@
+title: Jobs
+modelClass: Artlocation\Projects\Models\Job
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

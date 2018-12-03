@@ -1,0 +1,12 @@
+title: Filters
+modelClass: Artlocation\Projects\Models\Filter
+list: $/artlocation/projects/models/filter/columns.yaml
+recordUrl: 'artlocation/projects/filters/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

@@ -1,0 +1,67 @@
+title = "Главная"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Artlocation\Projects\Models\Project"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "project-details"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+==
+use Artlocation\Projects\Models\Filter;
+function onStart()
+{
+  $this['filters_list'] = Filter::get();
+}
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+{% put portfoliofilter %}
+	<img src="{{ 'assets/images/logo-top.png'|theme }}" alt="top logo" class="top-logo">
+
+	<div class="mouse">
+	</div>
+	<!-- Категории data-filter - категория-->
+	<div class="categories-wrap">
+		<div class="categories-item autoclickFix" data-filter="all">Все работы</div>
+		{% for filter in filters_list %}
+		<div class="categories-item" data-filter="{{ filter.code }}">{{ filter.title }}</div>
+		{% endfor %}
+	</div>
+{% endput %}
+
+<!-- main -->
+<main role="main-home-wrapper" class="container">
+	<div class="row filtr-container" id="grid">
+
+		{% for record in records %}
+
+		<!-- Единица портфолио с комментами; data-category - Категория -->
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid filtr-item" data-category="{{record.filter.code}}">
+			<figure class="effect-oscar">
+				<!-- Картинка 555x485 и путь до нее -->
+				<img src="{{ record.preview_img.path }}" alt="" class="img-responsive" />
+				<figcaption>
+					<h2></h2>
+					<p>{{ record.short_desc }}</p>
+					<!-- Ссылка на страницу -->
+					<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">Узнать больше</a>
+				</figcaption>
+			</figure>
+		</div>
+
+		{% endfor %}
+	</div>
+</main>
+<!-- main -->

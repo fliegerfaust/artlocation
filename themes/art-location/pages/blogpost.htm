@@ -1,0 +1,27 @@
+title = "Статья"
+url = "/blog/post/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "main"
+==
+{% set post = blogPost.post %}
+{% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
+
+<!-- main -->
+<main role="main-inner-wrapper" class="container">
+    	<div class="blog-details">
+        	<article class="post-details" id="post-details">
+                <header role="bog-header" class="bog-header text-center">
+                    <h3><span>{{ post.published_at|date('d') }}</span> {{ mnths[post.published_at|date('n')] }} {{ post.post.published_at|date('Y') }}</h3>
+                    <h2>{{ post.title }}</h2>
+                </header>
+
+                <div class="enter-content">
+					{{ post.content_html|raw }}
+                </div>
+        	</article>
+        </div>
+</main>

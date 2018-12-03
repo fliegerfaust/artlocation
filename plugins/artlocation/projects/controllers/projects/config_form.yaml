@@ -1,0 +1,10 @@
+name: Projects
+form: $/artlocation/projects/models/project/fields.yaml
+modelClass: Artlocation\Projects\Models\Project
+defaultRedirect: artlocation/projects/projects
+create:
+    redirect: 'artlocation/projects/projects/update/:id'
+    redirectClose: artlocation/projects/projects
+update:
+    redirect: artlocation/projects/projects
+    redirectClose: artlocation/projects/projects

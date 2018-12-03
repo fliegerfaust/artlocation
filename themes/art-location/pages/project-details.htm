@@ -1,0 +1,45 @@
+title = "Описание проекта"
+url = "/project-details/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Artlocation\Projects\Models\Project"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+{% set projectTypes = { identica: 'Айдентика' } %}
+<main role="main-inner-wrapper" class="container">
+    <!-- work details -->
+    <div class="work-details">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <header role="work-title">
+                        <h2>{{ record.name }}</h2>
+                </header>
+                <section>
+                    <p>{{ record.full_desc|raw }}</p>
+                    <p><strong>Тип работ</strong><br/>
+                    	{% for job in record.jobs %}
+                    		{{ job.title }}
+                    		{% if loop.index < record.jobs|length %},{% endif %}
+                    	{% endfor %}</p>
+                </section>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="work-images grid">
+            <ul class="grid-lod effect-2" id="grid">
+                <li><img src="{{ record.project_img.path }}" alt="" class="img-responsive" /></li>
+            </ul>
+        </div>
+    </div>
+    <!-- work details -->
+</main>

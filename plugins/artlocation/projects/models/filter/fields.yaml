@@ -1,0 +1,16 @@
+fields:
+    title:
+        label: 'Название фильтра'
+        span: auto
+        required: 1
+        type: text
+        comment: 'Название фильтра работ на главной странице'
+    code:
+        label: 'Код фильтра'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        required: 1
+        type: text
+        comment: 'Необходимо для backend'

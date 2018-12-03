@@ -1,0 +1,10 @@
+name: Jobs
+modelClass: Artlocation\Projects\Models\Job
+form: $/artlocation/projects/models/job/fields.yaml
+defaultRedirect: artlocation/projects/jobs
+create:
+    redirect: 'artlocation/projects/jobs/update/:id'
+    redirectClose: artlocation/projects/jobs
+update:
+    redirect: artlocation/projects/jobs
+    redirectClose: artlocation/projects/jobs

@@ -1,0 +1,20 @@
+plugin:
+    name: 'artlocation.projects::lang.plugin.name'
+    description: 'artlocation.projects::lang.plugin.description'
+    author: artlocation
+    icon: oc-icon-briefcase
+    homepage: 'http://artlocation.ru/'
+navigation:
+    main-menu-item:
+        label: Портфолио
+        url: artlocation/projects/projects
+        icon: icon-briefcase
+        sideMenu:
+            side-menu-item:
+                label: 'Типы работ'
+                url: artlocation/projects/jobs
+                icon: icon-tags
+            filters-menu-item:
+                label: Фильтры
+                url: artlocation/projects/filters
+                icon: icon-code

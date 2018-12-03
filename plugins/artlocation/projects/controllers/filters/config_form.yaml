@@ -1,0 +1,11 @@
+name: Filters
+modelClass: Artlocation\Projects\Models\Filter
+form: $/artlocation/projects/models/filter/fields.yaml
+defaultRedirect: artlocation/projects/filters
+create:
+    redirect: 'artlocation/projects/filters/update/:id'
+    redirectClose: artlocation/projects/filters
+update:
+    redirect: artlocation/projects/filters
+    redirectClose: artlocation/projects/filters
+preview: {  }
